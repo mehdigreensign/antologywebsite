@@ -405,31 +405,30 @@ import Layout from '../layouts/Layout.astro';
     }
   });
 
-  // Email functionality for contact sales buttons
-  async function sendContactEmail(email, source) {
+  // Email functionality for contact sales buttons using Formsubmit.co
+  async function sendContactEmail(email) {
     try {
       showLoading();
 
-      // For now, we'll simulate the API call since Supabase isn't connected yet
-      // In production, this would call the Supabase Edge Function
-      const response = await fetch('/api/send-contact-email', {
+      // Replace 'your-email@example.com' with your actual email address
+      const response = await fetch('https://formsubmit.co/ajax/your-email@example.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
           email: email,
-          source: source
+          subject: 'Route Optimization Demo Request from Antology.ai',
+          message: `New contact request from Antology.ai website.
+
+Email: ${email}
+Timestamp: ${new Date().toISOString()}
+
+The prospect is interested in learning more about AI-powered route optimization solution for delivery businesses.
+
+Please follow up to schedule a demo.`
         })
-      }).catch(() => {
-        // Simulate successful response for demo purposes
-        return {
-          ok: true,
-          json: () => Promise.resolve({
-            success: true,
-            message: "Thank you for your interest! Our sales team will contact you within 24 hours."
-          })
-        };
       });
 
       hideLoading();
@@ -437,12 +436,13 @@ import Layout from '../layouts/Layout.astro';
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          successMessage.textContent = data.message;
+          successMessage.textContent = "Thank you for your interest! Our sales team will contact you within 24 hours.";
           showModal();
-          // Clear the email input
-          document.getElementById(source === 'hero' ? 'hero-email' : 'cta-email').value = '';
+          // Clear the email inputs
+          document.getElementById('hero-email').value = '';
+          document.getElementById('cta-email').value = '';
         } else {
-          alert(data.error || 'Failed to send your request. Please try again.');
+          alert('Failed to send your request. Please try again.');
         }
       } else {
         alert('Failed to send your request. Please try again later.');
@@ -458,7 +458,7 @@ import Layout from '../layouts/Layout.astro';
   document.getElementById('hero-contact-btn').addEventListener('click', function() {
     const email = document.getElementById('hero-email').value.trim();
     if (email && email.includes('@')) {
-      sendContactEmail(email, 'hero');
+      sendContactEmail(email);
     } else {
       alert('Please enter a valid email address');
       document.getElementById('hero-email').focus();
@@ -469,7 +469,7 @@ import Layout from '../layouts/Layout.astro';
   document.getElementById('cta-contact-btn').addEventListener('click', function() {
     const email = document.getElementById('cta-email').value.trim();
     if (email && email.includes('@')) {
-      sendContactEmail(email, 'cta');
+      sendContactEmail(email);
     } else {
       alert('Please enter a valid email address');
       document.getElementById('cta-email').focus();
