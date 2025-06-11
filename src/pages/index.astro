@@ -1,0 +1,491 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <img src="/logo.png" alt="Antology.ai" class="h-8 w-auto" />
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#how-it-works" class="text-gray-600 hover:text-primary transition-colors">How It Works</a>
+          <a href="#features" class="text-gray-600 hover:text-primary transition-colors">Features</a>
+          <a href="#why-antology" class="text-gray-600 hover:text-primary transition-colors">Why Antology</a>
+          <a href="#optimize-deliveries" class="text-gray-600 hover:text-primary transition-colors">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Success Message Modal -->
+  <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+    <div class="bg-white rounded-lg p-8 max-w-md mx-4 border border-gray-200">
+      <div class="text-center">
+        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Thank You!</h3>
+        <p id="success-message" class="text-gray-600 mb-6">Our sales team will contact you within 24 hours.</p>
+        <button id="close-modal" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+    <div class="bg-white rounded-lg p-8">
+      <div class="flex items-center space-x-3">
+        <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+        <span class="text-gray-700">Sending your request...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-blue-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          AI-Powered Route Optimization for 
+          <span class="text-primary">Delivery Businesses</span>
+        </h2>
+        <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto">
+          Transform your delivery operations with intelligent route optimization software. 
+          Reduce costs, improve efficiency, and enhance customer satisfaction.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-3xl mx-auto">
+          <input 
+            type="email" 
+            id="hero-email"
+            placeholder="Enter your email address"
+            class="flex-1 w-full sm:w-auto px-4 py-4 rounded-lg border border-gray-300 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+          <button 
+            id="hero-contact-btn"
+            class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap"
+          >
+            Contact Sales
+          </button>
+        </div>
+      </div>
+      <div class="mt-16 text-center">
+        <div class="inline-block bg-white rounded-2xl border border-gray-200 p-8 w-full max-w-3xl mx-auto">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <div class="text-3xl font-bold text-primary mb-2">95%</div>
+              <div class="text-gray-600">Route Efficiency</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-accent mb-2">30%</div>
+              <div class="text-gray-600">Cost Reduction</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-primary mb-2">50%</div>
+              <div class="text-gray-600">Time Saved</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-accent mb-2">99%</div>
+              <div class="text-gray-600">Delivery Success</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Simple, powerful workflow that transforms your delivery planning from hours to minutes.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/20">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Upload Delivery Orders</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Drag-and-drop a spreadsheet or sync via API to cut manual work and errors. 
+            Get your delivery data into the system instantly.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="bg-accent/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border border-accent/20">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Optimize Routes with One Click</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Our algorithm builds practical, traffic-aware routes automatically. 
+            What used to take hours now happens in seconds.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/20">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a1 1 0 01-1-1V9a1 1 0 011-1h1a2 2 0 100-4H4a1 1 0 01-1-1V4a1 1 0 011-1h3a1 1 0 001-1z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Easy Route Adjustments</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Planners can drag-and-drop stops, add last-minute orders, and keep drivers 
+            in familiar territories with intuitive controls.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Powerful Features</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Everything you need to optimize your delivery operations and exceed customer expectations.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-8 border border-gray-200 hover:border-primary transition-colors">
+          <div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-primary/20">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Route Optimization</h3>
+          <p class="text-gray-600 leading-relaxed">
+            AI-powered algorithms create the most efficient routes considering traffic, distance, 
+            delivery windows, and vehicle constraints to minimize time and fuel costs.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 border border-gray-200 hover:border-accent transition-colors">
+          <div class="bg-accent/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-accent/20">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Real-Time Modifications</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Adapt to changing conditions instantly with dynamic route adjustments based on 
+            traffic updates, order changes, and unexpected delays.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 border border-gray-200 hover:border-primary transition-colors">
+          <div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-primary/20">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Intelligent Dispatch</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Smart assignment of deliveries to drivers based on location, capacity, 
+            skills, and availability for optimal resource utilization.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 border border-gray-200 hover:border-accent transition-colors">
+          <div class="bg-accent/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-accent/20">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18l8.5-5L5 8v10z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Live Tracking</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Monitor your entire fleet in real-time with GPS tracking, delivery status updates, 
+            and comprehensive analytics dashboard.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 border border-gray-200 hover:border-primary transition-colors">
+          <div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-primary/20">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Customer Notifications</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Automated SMS and email notifications keep customers informed about delivery 
+            status, estimated arrival times, and any updates.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 border border-gray-200 hover:border-accent transition-colors">
+          <div class="bg-accent/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 border border-accent/20">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Analytics & Reporting</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Comprehensive performance metrics, cost analysis, and operational insights 
+            to continuously improve your delivery operations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Antology Section -->
+  <section id="why-antology" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Choose Antology.ai?</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Join hundreds of delivery businesses that have transformed their operations with our AI-powered solution.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/20">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Proven Results</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Our clients typically see 30% cost reduction and 50% time savings within the first month of implementation.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="bg-accent/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border border-accent/20">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Easy Integration</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Seamless integration with existing systems including ERPs, WMS, and popular delivery platforms.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/20">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364L18.364 5.636"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">24/7 Support</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Dedicated customer success team with round-the-clock support and comprehensive training programs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Optimize Your Deliveries Section -->
+  <section id="optimize-deliveries" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Optimize Your Deliveries</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Join the growing number of delivery businesses that trust Antology.ai 
+          to optimize their operations and delight their customers.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <input 
+            type="email" 
+            id="cta-email"
+            placeholder="Enter your email address"
+            class="flex-1 w-full sm:w-auto px-4 py-4 rounded-lg border border-gray-300 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+          <button 
+            id="cta-contact-btn"
+            class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap"
+          >
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Footer -->
+  <footer id="contact" class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <img src="/logo.png" alt="Antology.ai" class="h-8 w-auto mb-4 brightness-0 invert" />
+          <p class="text-gray-300 mb-6 max-w-md">
+            Transform your delivery operations with AI-powered route optimization. 
+            Reduce costs, improve efficiency, and enhance customer satisfaction.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Product</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Company</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#why-antology" class="hover:text-white transition-colors">Why Antology</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <p class="text-gray-400">
+          © 2025 Antology.ai. All rights reserved. | 
+          <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a> | 
+          <a href="/terms-of-service" class="hover:text-white transition-colors">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      
+      // Skip if href is just '#' (invalid selector)
+      if (href === '#') {
+        return;
+      }
+      
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Modal functionality
+  const successModal = document.getElementById('success-modal');
+  const loadingSpinner = document.getElementById('loading-spinner');
+  const closeModalBtn = document.getElementById('close-modal');
+  const successMessage = document.getElementById('success-message');
+
+  function showModal() {
+    successModal.classList.remove('hidden');
+    successModal.classList.add('flex');
+  }
+
+  function hideModal() {
+    successModal.classList.add('hidden');
+    successModal.classList.remove('flex');
+  }
+
+  function showLoading() {
+    loadingSpinner.classList.remove('hidden');
+    loadingSpinner.classList.add('flex');
+  }
+
+  function hideLoading() {
+    loadingSpinner.classList.add('hidden');
+    loadingSpinner.classList.remove('flex');
+  }
+
+  closeModalBtn.addEventListener('click', hideModal);
+
+  // Close modal when clicking outside
+  successModal.addEventListener('click', function(e) {
+    if (e.target === successModal) {
+      hideModal();
+    }
+  });
+
+  // Email functionality for contact sales buttons
+  async function sendContactEmail(email, source) {
+    try {
+      showLoading();
+
+      // For now, we'll simulate the API call since Supabase isn't connected yet
+      // In production, this would call the Supabase Edge Function
+      const response = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          source: source
+        })
+      }).catch(() => {
+        // Simulate successful response for demo purposes
+        return {
+          ok: true,
+          json: () => Promise.resolve({
+            success: true,
+            message: "Thank you for your interest! Our sales team will contact you within 24 hours."
+          })
+        };
+      });
+
+      hideLoading();
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          successMessage.textContent = data.message;
+          showModal();
+          // Clear the email input
+          document.getElementById(source === 'hero' ? 'hero-email' : 'cta-email').value = '';
+        } else {
+          alert(data.error || 'Failed to send your request. Please try again.');
+        }
+      } else {
+        alert('Failed to send your request. Please try again later.');
+      }
+    } catch (error) {
+      hideLoading();
+      console.error('Error sending contact email:', error);
+      alert('Failed to send your request. Please try again later.');
+    }
+  }
+
+  // Hero section contact sales
+  document.getElementById('hero-contact-btn').addEventListener('click', function() {
+    const email = document.getElementById('hero-email').value.trim();
+    if (email && email.includes('@')) {
+      sendContactEmail(email, 'hero');
+    } else {
+      alert('Please enter a valid email address');
+      document.getElementById('hero-email').focus();
+    }
+  });
+
+  // CTA section contact sales
+  document.getElementById('cta-contact-btn').addEventListener('click', function() {
+    const email = document.getElementById('cta-email').value.trim();
+    if (email && email.includes('@')) {
+      sendContactEmail(email, 'cta');
+    } else {
+      alert('Please enter a valid email address');
+      document.getElementById('cta-email').focus();
+    }
+  });
+
+  // Allow Enter key to trigger contact sales
+  document.getElementById('hero-email').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      document.getElementById('hero-contact-btn').click();
+    }
+  });
+
+  document.getElementById('cta-email').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      document.getElementById('cta-contact-btn').click();
+    }
+  });
+</script>

@@ -1,0 +1,70 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Antology.ai - AI-Powered Route Optimization for Delivery Businesses",
+  description = "Transform your delivery operations with Antology.ai's intelligent route optimization software. Reduce costs, improve efficiency, and enhance customer satisfaction with AI-powered logistics solutions."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="route optimization software, delivery dispatch, logistics tracking, AI for delivery, route planning, delivery management, logistics optimization, fleet management" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://antology.ai" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Antology.ai",
+      "description": "AI-Powered Route Optimization for Delivery Businesses",
+      "url": "https://antology.ai",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Antology.ai",
+        "url": "https://antology.ai"
+      }
+    }
+    </script>
+  </head>
+  <body class="font-sans text-gray-900 bg-white">
+    <slot />
+  </body>
+</html>
