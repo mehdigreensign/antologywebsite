@@ -20,24 +20,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </nav>
 
-  <!-- Success Message Modal -->
-  <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
-    <div class="bg-white rounded-lg p-8 max-w-md mx-4 border border-gray-200">
-      <div class="text-center">
-        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Thank You!</h3>
-        <p id="success-message" class="text-gray-600 mb-6">Our sales team will contact you within 24 hours.</p>
-        <button id="close-modal" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- Loading Spinner -->
   <div id="loading-spinner" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
     <div class="bg-white rounded-lg p-8">
@@ -60,19 +42,38 @@ import Layout from '../layouts/Layout.astro';
           Transform your delivery operations with intelligent route optimization software. 
           Reduce costs, improve efficiency, and enhance customer satisfaction.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-3xl mx-auto">
-          <input 
-            type="email" 
-            id="hero-email"
-            placeholder="Enter your email address"
-            class="flex-1 w-full sm:w-auto px-4 py-4 rounded-lg border border-gray-300 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          />
-          <button 
-            id="hero-contact-btn"
-            class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap"
-          >
-            Contact Sales
-          </button>
+        
+        <!-- Hero Contact Form -->
+        <div class="max-w-3xl mx-auto">
+          <div id="hero-form-container" class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <input 
+              type="email" 
+              id="hero-email"
+              placeholder="Enter your email address"
+              class="flex-1 w-full sm:w-auto px-4 py-4 rounded-lg border border-gray-300 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+            <button 
+              id="hero-contact-btn"
+              class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap"
+            >
+              Contact Sales
+            </button>
+          </div>
+          
+          <!-- Hero Success Message -->
+          <div id="hero-success-message" class="hidden bg-green-50 border border-green-200 rounded-lg p-6 mt-4">
+            <div class="flex items-center justify-center">
+              <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div class="text-center">
+                <h3 class="text-lg font-semibold text-green-800 mb-1">Thank you!</h3>
+                <p class="text-green-700">We will get back to you shortly.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="mt-16 text-center">
@@ -292,7 +293,9 @@ import Layout from '../layouts/Layout.astro';
           Join the growing number of delivery businesses that trust Antology.ai 
           to optimize their operations and delight their customers.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        
+        <!-- CTA Contact Form -->
+        <div id="cta-form-container" class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <input 
             type="email" 
             id="cta-email"
@@ -305,6 +308,21 @@ import Layout from '../layouts/Layout.astro';
           >
             Contact Sales
           </button>
+        </div>
+        
+        <!-- CTA Success Message -->
+        <div id="cta-success-message" class="hidden bg-green-50 border border-green-200 rounded-lg p-6 mt-4">
+          <div class="flex items-center justify-center">
+            <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <div class="text-center">
+              <h3 class="text-lg font-semibold text-green-800 mb-1">Thank you!</h3>
+              <p class="text-green-700">We will get back to you shortly.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -370,21 +388,8 @@ import Layout from '../layouts/Layout.astro';
     });
   });
 
-  // Modal functionality
-  const successModal = document.getElementById('success-modal');
+  // Loading spinner functionality
   const loadingSpinner = document.getElementById('loading-spinner');
-  const closeModalBtn = document.getElementById('close-modal');
-  const successMessage = document.getElementById('success-message');
-
-  function showModal() {
-    successModal.classList.remove('hidden');
-    successModal.classList.add('flex');
-  }
-
-  function hideModal() {
-    successModal.classList.add('hidden');
-    successModal.classList.remove('flex');
-  }
 
   function showLoading() {
     loadingSpinner.classList.remove('hidden');
@@ -396,17 +401,18 @@ import Layout from '../layouts/Layout.astro';
     loadingSpinner.classList.remove('flex');
   }
 
-  closeModalBtn.addEventListener('click', hideModal);
-
-  // Close modal when clicking outside
-  successModal.addEventListener('click', function(e) {
-    if (e.target === successModal) {
-      hideModal();
-    }
-  });
+  // Success message functionality
+  function showSuccessMessage(formType) {
+    const formContainer = document.getElementById(`${formType}-form-container`);
+    const successMessage = document.getElementById(`${formType}-success-message`);
+    
+    // Hide the form and show success message
+    formContainer.classList.add('hidden');
+    successMessage.classList.remove('hidden');
+  }
 
   // Email functionality for contact sales buttons using Formsubmit.co
-  async function sendContactEmail(email) {
+  async function sendContactEmail(email, formType) {
     try {
       showLoading();
 
@@ -436,11 +442,7 @@ Please follow up to schedule a demo.`
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          successMessage.textContent = "Thank you for your interest! Our sales team will contact you within 24 hours.";
-          showModal();
-          // Clear the email inputs
-          document.getElementById('hero-email').value = '';
-          document.getElementById('cta-email').value = '';
+          showSuccessMessage(formType);
         } else {
           alert('Failed to send your request. Please try again.');
         }
@@ -458,7 +460,7 @@ Please follow up to schedule a demo.`
   document.getElementById('hero-contact-btn').addEventListener('click', function() {
     const email = document.getElementById('hero-email').value.trim();
     if (email && email.includes('@')) {
-      sendContactEmail(email);
+      sendContactEmail(email, 'hero');
     } else {
       alert('Please enter a valid email address');
       document.getElementById('hero-email').focus();
@@ -469,7 +471,7 @@ Please follow up to schedule a demo.`
   document.getElementById('cta-contact-btn').addEventListener('click', function() {
     const email = document.getElementById('cta-email').value.trim();
     if (email && email.includes('@')) {
-      sendContactEmail(email);
+      sendContactEmail(email, 'cta');
     } else {
       alert('Please enter a valid email address');
       document.getElementById('cta-email').focus();
