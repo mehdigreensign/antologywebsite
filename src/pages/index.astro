@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
 ---
-
 
 <Layout>
   <!-- Navigation -->
@@ -36,31 +36,35 @@ import Layout from '../layouts/Layout.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-          AI-Powered Route Optimization for 
+          AI-Powered Route Optimization for
           <span class="text-primary">Delivery Businesses</span>
         </h2>
         <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto">
-          Transform your delivery operations with intelligent route optimization software. 
+          Transform your delivery operations with intelligent route optimization software.
           Reduce costs, improve efficiency, and enhance customer satisfaction.
         </p>
-        
+
         <!-- Hero Contact Form -->
         <div class="max-w-3xl mx-auto">
-          <div id="hero-form-container" class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <input 
-              type="email" 
-              id="hero-email"
-              placeholder="Enter your email address"
-              class="flex-1 w-full sm:w-auto px-4 py-4 rounded-lg border border-gray-300 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
-            <button 
-              id="hero-contact-btn"
-              class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap"
-            >
-              Let's Talk
-            </button>
-          </div>
-          
+          <form id="hero-form-container" class="space-y-4">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <input
+                type="email"
+                id="hero-email"
+                placeholder="Enter your email address"
+                required
+                class="flex-1 w-full sm:w-auto px-4 py-4 rounded-lg border border-gray-300 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <button
+                type="submit"
+                id="hero-contact-btn"
+                class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap"
+              >
+                Let's Talk
+              </button>
+            </div>
+          </form>
+
           <!-- Hero Success Message -->
           <div id="hero-success-message" class="hidden bg-green-50 border border-green-200 rounded-lg p-6 mt-4">
             <div class="flex items-center justify-center">
@@ -120,7 +124,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <h3 class="text-2xl font-semibold mb-4">Upload Delivery Orders</h3>
           <p class="text-gray-600 leading-relaxed">
-            Drag-and-drop a spreadsheet or sync via API to cut manual work and errors. 
+            Drag-and-drop a spreadsheet or sync via API to cut manual work and errors.
             Get your delivery data into the system instantly.
           </p>
         </div>
@@ -132,7 +136,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <h3 class="text-2xl font-semibold mb-4">Optimize Routes with One Click</h3>
           <p class="text-gray-600 leading-relaxed">
-            Our algorithm builds practical, traffic-aware routes automatically. 
+            Our algorithm builds practical, traffic-aware routes automatically.
             What used to take hours now happens in seconds.
           </p>
         </div>
@@ -144,7 +148,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <h3 class="text-2xl font-semibold mb-4">Easy Route Adjustments</h3>
           <p class="text-gray-600 leading-relaxed">
-            Planners can drag-and-drop stops, add last-minute orders, and keep drivers 
+            Planners can drag-and-drop stops, add last-minute orders, and keep drivers
             in familiar territories with intuitive controls.
           </p>
         </div>
@@ -170,7 +174,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <h3 class="text-2xl font-semibold mb-4">Route Optimization</h3>
           <p class="text-gray-600 leading-relaxed">
-            AI-powered algorithms create the most efficient routes considering traffic, distance, 
+            AI-powered algorithms create the most efficient routes considering traffic, distance,
             delivery windows, and vehicle constraints to minimize time and fuel costs.
           </p>
         </div>
@@ -182,7 +186,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <h3 class="text-2xl font-semibold mb-4">Real-Time Modifications</h3>
           <p class="text-gray-600 leading-relaxed">
-            Adapt to changing conditions instantly with dynamic route adjustments based on 
+            Adapt to changing conditions instantly with dynamic route adjustments based on
             traffic updates, order changes, and unexpected delays.
           </p>
         </div>
@@ -194,7 +198,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <h3 class="text-2xl font-semibold mb-4">Intelligent Dispatch</h3>
           <p class="text-gray-600 leading-relaxed">
-            Smart assignment of deliveries to drivers based on location, capacity, 
+            Smart assignment of deliveries to drivers based on location, capacity,
             skills, and availability for optimal resource utilization.
           </p>
         </div>
@@ -206,7 +210,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <h3 class="text-2xl font-semibold mb-4">Live Tracking</h3>
           <p class="text-gray-600 leading-relaxed">
-            Monitor your entire fleet in real-time with GPS tracking, delivery status updates, 
+            Monitor your entire fleet in real-time with GPS tracking, delivery status updates,
             and comprehensive analytics dashboard.
           </p>
         </div>
@@ -218,7 +222,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <h3 class="text-2xl font-semibold mb-4">Customer Notifications</h3>
           <p class="text-gray-600 leading-relaxed">
-            Automated SMS and email notifications keep customers informed about delivery 
+            Automated SMS and email notifications keep customers informed about delivery
             status, estimated arrival times, and any updates.
           </p>
         </div>
@@ -230,7 +234,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <h3 class="text-2xl font-semibold mb-4">Analytics & Reporting</h3>
           <p class="text-gray-600 leading-relaxed">
-            Comprehensive performance metrics, cost analysis, and operational insights 
+            Comprehensive performance metrics, cost analysis, and operational insights
             to continuously improve your delivery operations.
           </p>
         </div>
@@ -291,26 +295,30 @@ import Layout from '../layouts/Layout.astro';
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">Optimize Your Deliveries</h2>
         <p class="text-xl text-gray-600 mb-8">
-          Join the growing number of delivery businesses that trust Antology.ai 
+          Join the growing number of delivery businesses that trust Antology.ai
           to optimize their operations and delight their customers.
         </p>
-        
+
         <!-- CTA Contact Form -->
-        <div id="cta-form-container" class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <input 
-            type="email" 
-            id="cta-email"
-            placeholder="Enter your email address"
-            class="flex-1 w-full sm:w-auto px-4 py-4 rounded-lg border border-gray-300 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          />
-          <button 
-            id="cta-contact-btn"
-            class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap"
-          >
-            Let's Talk
-          </button>
-        </div>
-        
+        <form id="cta-form-container" class="space-y-4">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <input
+              type="email"
+              id="cta-email"
+              placeholder="Enter your email address"
+              required
+              class="flex-1 w-full sm:w-auto px-4 py-4 rounded-lg border border-gray-300 text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+            <button
+              type="submit"
+              id="cta-contact-btn"
+              class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap"
+            >
+              Let's Talk
+            </button>
+          </div>
+        </form>
+
         <!-- CTA Success Message -->
         <div id="cta-success-message" class="hidden bg-green-50 border border-green-200 rounded-lg p-6 mt-4">
           <div class="flex items-center justify-center">
@@ -330,41 +338,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Contact Footer -->
-  <footer id="contact" class="bg-gray-900 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="md:col-span-2">
-          <img src="/logo.png" alt="Antology.ai" class="h-8 w-auto mb-4 brightness-0 invert" />
-          <p class="text-gray-300 mb-6 max-w-md">
-            Transform your delivery operations with AI-powered route optimization. 
-            Reduce costs, improve efficiency, and enhance customer satisfaction.
-          </p>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Product</h4>
-          <ul class="space-y-2 text-gray-300">
-            <li><a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a></li>
-            <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">API</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Company</h4>
-          <ul class="space-y-2 text-gray-300">
-            <li><a href="#why-antology" class="hover:text-white transition-colors">Why Antology</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-        <p class="text-gray-400">
-          © 2025 Antology.ai. All rights reserved. | 
-          <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a> | 
-          <a href="/terms-of-service" class="hover:text-white transition-colors">Terms of Service</a>
-        </p>
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </Layout>
 
 <script>
@@ -373,12 +347,12 @@ import Layout from '../layouts/Layout.astro';
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const href = this.getAttribute('href');
-      
+
       // Skip if href is just '#' (invalid selector)
       if (href === '#') {
         return;
       }
-      
+
       const target = document.querySelector(href);
       if (target) {
         target.scrollIntoView({
@@ -406,7 +380,7 @@ import Layout from '../layouts/Layout.astro';
   function showSuccessMessage(formType) {
     const formContainer = document.getElementById(`${formType}-form-container`);
     const successMessage = document.getElementById(`${formType}-success-message`);
-    
+
     // Hide the form and show success message
     formContainer.classList.add('hidden');
     successMessage.classList.remove('hidden');
@@ -457,38 +431,33 @@ Please follow up to schedule a demo.`
     }
   }
 
-  // Hero section contact sales
-  document.getElementById('hero-contact-btn').addEventListener('click', function() {
+  // Hero section contact form
+  document.getElementById('hero-form-container').addEventListener('submit', function(e) {
+    e.preventDefault();
+
     const email = document.getElementById('hero-email').value.trim();
-    if (email && email.includes('@')) {
-      sendContactEmail(email, 'hero');
-    } else {
+
+    if (!email || !email.includes('@')) {
       alert('Please enter a valid email address');
       document.getElementById('hero-email').focus();
+      return;
     }
+
+    sendContactEmail(email, 'hero');
   });
 
-  // CTA section contact sales
-  document.getElementById('cta-contact-btn').addEventListener('click', function() {
+  // CTA section contact form
+  document.getElementById('cta-form-container').addEventListener('submit', function(e) {
+    e.preventDefault();
+
     const email = document.getElementById('cta-email').value.trim();
-    if (email && email.includes('@')) {
-      sendContactEmail(email, 'cta');
-    } else {
+
+    if (!email || !email.includes('@')) {
       alert('Please enter a valid email address');
       document.getElementById('cta-email').focus();
+      return;
     }
-  });
 
-  // Allow Enter key to trigger contact sales
-  document.getElementById('hero-email').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      document.getElementById('hero-contact-btn').click();
-    }
-  });
-
-  document.getElementById('cta-email').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      document.getElementById('cta-contact-btn').click();
-    }
+    sendContactEmail(email, 'cta');
   });
 </script>
