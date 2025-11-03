@@ -386,29 +386,21 @@ import Footer from '../components/Footer.astro';
     successMessage.classList.remove('hidden');
   }
 
-  // Email functionality for contact sales buttons using Formsubmit.co
   async function sendContactEmail(email, formType) {
     try {
       showLoading();
 
-      // Form submission to sales@antology.ai via Formsubmit.co
-      const response = await fetch('https://formsubmit.co/ajax/sales@antology.ai', {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const apiUrl = `${supabaseUrl}/functions/v1/send-contact-email`;
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
         },
         body: JSON.stringify({
           email: email,
-          subject: 'Route Optimization Demo Request from Antology.ai',
-          message: `New contact request from Antology.ai website.
-
-Email: ${email}
-Timestamp: ${new Date().toISOString()}
-
-The prospect is interested in learning more about AI-powered route optimization solution for delivery businesses.
-
-Please follow up to schedule a demo.`
+          formType: formType
         })
       });
 
